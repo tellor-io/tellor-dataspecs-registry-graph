@@ -1,0 +1,39 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: sepolia
+    source:
+      address: "0x06Be23ea84148a5E439dFe2A0bcCE441ea74E2D6"
+      abi: Contract
+      startBlock: 3871734
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DocumentHashUpdated
+        - ManagerUpdated
+        - NewRegistration
+        - OwnerUpdated
+        - RegistrationExtended
+        - TellorAddressUpdated
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: DocumentHashUpdated(string,string)
+          handler: handleDocumentHashUpdated
+        - event: ManagerUpdated(string,address)
+          handler: handleManagerUpdated
+        - event: NewRegistration(string,address,uint256)
+          handler: handleNewRegistration
+        - event: OwnerUpdated(string,address)
+          handler: handleOwnerUpdated
+        - event: RegistrationExtended(string,uint256)
+          handler: handleRegistrationExtended
+        - event: TellorAddressUpdated(address)
+          handler: handleTellorAddressUpdated
+      file: ./src/contract.ts

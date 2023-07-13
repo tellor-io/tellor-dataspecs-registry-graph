@@ -1,0 +1,53 @@
+type DocumentHashUpdated @entity(immutable: true) {
+  id: Bytes!
+  _queryType: String! # string
+  _documentHash: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ManagerUpdated @entity(immutable: true) {
+  id: Bytes!
+  _queryType: String! # string
+  _manager: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewRegistration @entity(immutable: true) {
+  id: Bytes!
+  _queryType: String! # string
+  _owner: Bytes! # address
+  _expirationTime: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnerUpdated @entity(immutable: true) {
+  id: Bytes!
+  _queryType: String! # string
+  _owner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RegistrationExtended @entity(immutable: true) {
+  id: Bytes!
+  _queryType: String! # string
+  _expirationTime: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TellorAddressUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tellorAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
