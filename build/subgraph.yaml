@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Contract
@@ -22,7 +22,7 @@ dataSources:
         - TellorAddressUpdated
       abis:
         - name: Contract
-          file: ./abis/Contract.json
+          file: Contract/abis/Contract.json
       eventHandlers:
         - event: DocumentHashUpdated(string,string)
           handler: handleDocumentHashUpdated
@@ -34,4 +34,4 @@ dataSources:
           handler: handleOwnerUpdated
         - event: RegistrationExtended(string,uint256)
           handler: handleRegistrationExtended
-      file: ./src/contract.ts
+      file: Contract/Contract.wasm
